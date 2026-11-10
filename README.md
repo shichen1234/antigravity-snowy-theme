@@ -1,0 +1,2 @@
+# antigravity-snowy-theme
+antigravity的使用BetterGravity更换主题的雪景主题预设
