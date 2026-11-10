@@ -1,0 +1,624 @@
+/**
+ * @name Dark Snowy Night Theme
+ * @description 极简清透雪夜主题：全透明侧边栏与顶栏，精致半透明毛玻璃底栏，无分割线一体化交互，黑字灰底选中高亮，冰蓝高亮代码
+ * @author 时尘
+ * @version 3.6.0
+ */
+
+/* 1. 在最底层固定挂载雪夜壁纸并清除多层容器背景（严格保留弹窗、菜单、覆盖层与红色暂停图标） */
+html, body {
+  background-image: url("./background.png") !important;
+  background-size: cover !important;
+  background-position: center center !important;
+  background-repeat: no-repeat !important;
+  background-attachment: fixed !important;
+  background-color: #0b0f17 !important;
+}
+
+#root, #app,
+body div:not([class*="composer"]):not([class*="bubble"]):not([role="dialog"]):not([role="menu"]):not([class*="overlay"]):not([data-browser-occluder]):not([data-base-ui-portal] *):not([class*="bg-red"]):not([data-testid*="cancel"] *):not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not([data-selected="true"] *):not([data-active="true"] *):not(.bg-sidebar-secondary *),
+body main,
+body section,
+body article,
+.agy-shell,
+[class*="browser-hole"] {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* 2. 左侧侧边栏全透明化（仅限侧边栏整体大容器，保留浮层与选中项高亮） */
+aside,
+nav,
+[role="navigation"],
+[data-testid="sidebar"],
+[data-testid="sidebar-split"] > div,
+.h-full.w-full.flex.flex-col.pb-2.bg-sidebar {
+  background: transparent !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 3. 顶部菜单栏与标题栏全透明化（保留下拉菜单的毛玻璃） */
+header,
+[data-testid="title-menu-bar"],
+[data-testid="title-menu-bar"] ~ div:not([data-browser-occluder]):not(:has([data-testid="title-menu-bar-option"])),
+.shrink-0:has([data-testid="title-menu-bar"]),
+[class*="titlebar" i],
+[class*="TitleBar" i],
+[data-testid*="window-controls"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 4. 彻底移除刺眼的白色边框与多余黑色背景块 */
+.border,
+.border-border,
+.border-t, .border-b, .border-l, .border-r {
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+.card,
+[role="region"],
+[class*="panel" i]:not([class*="overview-panel" i]),
+[class*="step" i],
+[class*="user-input-step" i] {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+/* 移除输入框上方刺眼的白底渐变遮罩 */
+div[style*="linear-gradient(to top, var(--background)"],
+div[style*="linear-gradient(to top, rgb(238"] {
+  display: none !important;
+}
+
+/* 5. 侧边栏项（New Conversation 按钮、对话列表、功能导航）：未选中纯白字，选中半透明浅白黑字 */
+/* 5.1 未选中状态：透明底，纯白字（绝不再默认黑字） */
+[role="navigation"] a:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active),
+[role="navigation"] button:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active),
+a[href="/"]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active),
+[data-testid="new-conversation-button"]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active),
+button[class*="new-conversation" i]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active),
+.agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) {
+  background-color: transparent !important;
+  background: transparent !important;
+  color: #f8fafc !important;
+  border-color: rgba(255, 255, 255, 0.08) !important;
+}
+
+[role="navigation"] a:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *,
+[role="navigation"] button:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *,
+a[href="/"]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *,
+[data-testid="new-conversation-button"]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *,
+button[class*="new-conversation" i]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *,
+.agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) * {
+  color: #f8fafc !important;
+  fill: #f8fafc !important;
+  stroke: #f8fafc !important;
+}
+
+/* 5.2 未选中项鼠标悬浮反馈：轻盈微透白光晕 */
+[role="navigation"] a:hover:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary),
+[role="navigation"] button:hover:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary),
+.agy-sidebar-row:hover:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+
+/* 5.3 选中项（“选择在哪里”）：非常浅的白色半透明偏多毛玻璃底板，黑字高亮 */
+body [role="navigation"] [data-selected="true"],
+body [role="navigation"] [data-active="true"],
+body [role="navigation"] [aria-selected="true"],
+body [role="navigation"] .active,
+body [role="navigation"] .bg-sidebar-secondary,
+body [data-testid="sidebar"] [data-selected="true"],
+body [data-testid="sidebar"] [data-active="true"],
+body [data-testid="sidebar"] .bg-sidebar-secondary,
+body .agy-sidebar-row[data-selected="true"],
+body .agy-sidebar-row[data-active="true"],
+body .agy-sidebar-row.bg-sidebar-secondary,
+body a[href="/"].bg-sidebar-secondary,
+body a[href="/"][data-selected="true"],
+body a[href="/"][data-active="true"],
+body [data-testid="new-conversation-button"].bg-sidebar-secondary,
+body [data-testid="new-conversation-button"][data-selected="true"],
+body [data-testid="new-conversation-button"][data-active="true"] {
+  background: rgba(255, 255, 255, 0.82) !important;
+  background-color: rgba(255, 255, 255, 0.82) !important;
+  backdrop-filter: blur(14px) saturate(160%) !important;
+  -webkit-backdrop-filter: blur(14px) saturate(160%) !important;
+  color: #0f172a !important;
+  border: none !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18) !important;
+  --row-bg: rgba(255, 255, 255, 0.82) !important;
+}
+
+body [role="navigation"] [data-selected="true"] *,
+body [role="navigation"] [data-active="true"] *,
+body [role="navigation"] [aria-selected="true"] *,
+body [role="navigation"] .active *,
+body [role="navigation"] .bg-sidebar-secondary *,
+body [data-testid="sidebar"] [data-selected="true"] *,
+body [data-testid="sidebar"] [data-active="true"] *,
+body [data-testid="sidebar"] .bg-sidebar-secondary *,
+body .agy-sidebar-row[data-selected="true"] *,
+body .agy-sidebar-row[data-active="true"] *,
+body .agy-sidebar-row.bg-sidebar-secondary *,
+body a[href="/"].bg-sidebar-secondary *,
+body a[href="/"][data-selected="true"] *,
+body a[href="/"][data-active="true"] *,
+body [data-testid="new-conversation-button"].bg-sidebar-secondary *,
+body [data-testid="new-conversation-button"][data-selected="true"] *,
+body [data-testid="new-conversation-button"][data-active="true"] * {
+  color: #0f172a !important;
+  fill: #0f172a !important;
+  stroke: #0f172a !important;
+}
+
+/* 6. 侧边栏对话行操作按钮（归档、固定、更多三点）：彻底消除黑色遮罩与渐变背景 */
+.agy-row-actions,
+[class*="row-actions"],
+[role="navigation"] [class*="row-actions"],
+.agy-sidebar-row .agy-row-actions {
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  --row-bg: transparent !important;
+}
+
+/* 核心：消除 Tailwind 在 row-actions 上注入的 ::before 黑色渐变遮罩 */
+.agy-row-actions::before,
+.agy-row-actions::after,
+[class*="row-actions"]::before,
+[class*="row-actions"]::after,
+.agy-sidebar-row .agy-row-actions::before,
+.agy-sidebar-row .agy-row-actions::after,
+[data-testid="conversation-row-history"] .agy-row-actions::before,
+[data-testid="conversation-row-history"] .agy-row-actions::after {
+  display: none !important;
+  content: none !important;
+  background: transparent !important;
+  background-image: none !important;
+  mask-image: none !important;
+  -webkit-mask-image: none !important;
+}
+
+.agy-row-actions button,
+[class*="row-actions"] button {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+  color: #f8fafc !important;
+}
+
+.agy-row-actions button:hover,
+[class*="row-actions"] button:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 6px !important;
+}
+
+/* 选中项的行操作按钮：深色图标与微深悬浮效果 */
+.agy-sidebar-row[data-selected="true"] .agy-row-actions button,
+.agy-sidebar-row.bg-sidebar-secondary .agy-row-actions button {
+  color: #0f172a !important;
+}
+
+.agy-sidebar-row[data-selected="true"] .agy-row-actions button svg,
+.agy-sidebar-row.bg-sidebar-secondary .agy-row-actions button svg {
+  fill: #0f172a !important;
+  stroke: #0f172a !important;
+}
+
+.agy-sidebar-row[data-selected="true"] .agy-row-actions button:hover,
+.agy-sidebar-row.bg-sidebar-secondary .agy-row-actions button:hover {
+  background-color: rgba(0, 0, 0, 0.08) !important;
+}
+[class*="row-actions"] button:hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+  border-radius: 6px !important;
+}
+
+/* 7. 顶部菜单栏下拉菜单（Antigravity、Workspace、View、Window）：毛玻璃半透明背景，清晰防遮挡 */
+div[data-browser-occluder="true"],
+div:has(> [data-testid="title-menu-bar-option"]),
+div:has(> div > [data-testid="title-menu-bar-option"]) {
+  background-color: rgba(18, 24, 36, 0.78) !important;
+  background: rgba(18, 24, 36, 0.78) !important;
+  backdrop-filter: blur(28px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 10px !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+[data-testid="title-menu-bar-option"] {
+  color: #f1f5f9 !important;
+}
+
+[data-testid="title-menu-bar-option"]:hover {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+  color: #ffffff !important;
+  border-radius: 6px !important;
+}
+
+/* 8. 底部主输入框：清透毛玻璃胶囊整体，无内部椭圆分割框，完全融入 */
+.surface-composer,
+#antigravity\.agentSidePanelInputBox,
+[data-testid="agent-input-box"] > .surface-composer {
+  background-color: rgba(18, 24, 36, 0.42) !important;
+  backdrop-filter: blur(28px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 12px 40px 0 rgba(0, 0, 0, 0.35) !important;
+}
+
+/* 消除输入框内部卡片和底部工具栏的嵌套椭圆框与背景，完美融为一体 */
+.surface-composer-card,
+.agy-composer-footer,
+[class*="composer-footer"] {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+}
+
+/* 彻底移除输入框内部所有横向或多余边框 */
+.agy-composer-footer,
+[class*="composer-footer"],
+.surface-composer [class*="border"],
+.surface-composer-card [class*="border"],
+.surface-composer footer {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+}
+
+/* 输入框内部文本与占位符 */
+textarea,
+input:not([type="checkbox"]):not([type="radio"]),
+[contenteditable="true"] {
+  background: transparent !important;
+  border: none !important;
+  color: #f8fafc !important;
+}
+
+::placeholder {
+  color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 9. 输入框唤出的纯黑面板（模型选择、Turbo权限、+ 添加上下文）：改为通透毛玻璃半透明 */
+.agy-overlay,
+.surface-glass,
+[role="menu"]:not([data-browser-occluder]),
+[data-base-ui-portal] [role="menu"],
+[data-base-ui-portal] .agy-overlay,
+[data-radix-menu-content],
+[data-radix-popper-content-wrapper] > div,
+[popover]:not(:has([data-testid="title-menu-bar-option"])) {
+  background-color: rgba(18, 24, 36, 0.68) !important;
+  background: rgba(18, 24, 36, 0.68) !important;
+  backdrop-filter: blur(28px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 14px !important;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5) !important;
+}
+
+/* 弹出层内部子容器全透明，融入半透明大框中 */
+.agy-overlay div,
+[role="menu"] div,
+.surface-glass div {
+  background-color: transparent !important;
+}
+
+/* 弹出菜单项交互与高亮 */
+.agy-overlay [role="menuitem"],
+[role="menu"] [role="menuitem"],
+.agy-overlay button,
+[role="menu"] button {
+  background: transparent !important;
+  background-color: transparent !important;
+  color: #f1f5f9 !important;
+  transition: background-color 0.15s ease !important;
+}
+
+.agy-overlay [role="menuitem"]:hover,
+.agy-overlay [role="menuitem"][data-highlighted],
+.agy-overlay [role="menuitem"][data-active="true"],
+[role="menu"] [role="menuitem"]:hover,
+[role="menu"] [role="menuitem"][data-highlighted],
+[role="menu"] button:hover,
+.agy-overlay button:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+  border-radius: 8px !important;
+}
+
+/* 10. 输入框底部控制按钮（模型选择、Turbo、麦克风、语音、取消、发送） */
+[data-testid="agent-input-box"] button:not([data-testid="input-cancel-button"]):not([data-testid="input-send-button"]),
+.agy-composer-footer button:not([data-testid="input-cancel-button"]):not([data-testid="input-send-button"]) {
+  background-color: transparent !important;
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  border-radius: 8px !important;
+  transition: background-color 0.2s ease, color 0.2s ease !important;
+}
+
+[data-testid="agent-input-box"] button:not([data-testid="input-cancel-button"]):not([data-testid="input-send-button"]):hover,
+.agy-composer-footer button:not([data-testid="input-cancel-button"]):not([data-testid="input-send-button"]):hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+/* 语音按钮（Live Pill / Voice Mode）：透明融入底栏，波形图标清晰白亮 */
+[data-testid="voice-live-pill"],
+[data-testid="voice-start-button"],
+[aria-label*="voice" i],
+[aria-label*="Voice" i] {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  border: none !important;
+}
+
+[data-testid="voice-live-pill"]:hover,
+[data-testid="voice-start-button"]:hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+[data-testid="voice-live-pill"] rect,
+[data-testid="voice-live-pill"] path,
+[data-testid="voice-live-pill"] svg,
+[data-testid="voice-start-button"] svg {
+  fill: rgba(255, 255, 255, 0.88) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+}
+
+/* 暂停/取消按钮：外层精致微透圆角按钮，内部经典鲜明红色暂停方块绝对保证高亮显示 */
+[data-testid="input-cancel-button"] {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 9999px !important;
+  width: 28px !important;
+  height: 28px !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  border: none !important;
+  box-shadow: none !important;
+  cursor: pointer !important;
+  transition: background-color 0.2s ease !important;
+}
+
+[data-testid="input-cancel-button"]:hover {
+  background-color: rgba(239, 68, 68, 0.25) !important;
+}
+
+/* 极其精准的红色方块样式，避免被通用 div 规则覆写 */
+body div[class*="bg-red-500"],
+body div.bg-red-500,
+body [data-testid="input-cancel-button"] div,
+[data-testid="input-cancel-button"] > div,
+[data-testid="input-cancel-button"] .bg-red-500 {
+  background-color: #ef4444 !important;
+  background: #ef4444 !important;
+  border-radius: 2px !important;
+  width: 10px !important;
+  height: 10px !important;
+  display: block !important;
+}
+
+/* 发送按钮：优雅融入 */
+[data-testid="input-send-button"] {
+  background-color: rgba(255, 255, 255, 0.18) !important;
+  color: #ffffff !important;
+  border: none !important;
+  box-shadow: none !important;
+}
+
+[data-testid="input-send-button"]:hover {
+  background-color: rgba(255, 255, 255, 0.28) !important;
+}
+
+[data-testid="input-send-button"] svg {
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+  color: #ffffff !important;
+}
+
+/* 11. 文本颜色规范：普通中文与正文纯白，仅代码与参数高亮冰蓝 */
+body, p, h1, h2, h3, h4, h5, h6, li, ul, ol, blockquote, label, strong, b, em {
+  color: #f8fafc !important;
+}
+
+span:not([data-active="true"] *):not(.active *):not([data-selected="true"] *):not(.bg-sidebar-secondary *):not(code *):not(pre *):not(.inline-pill *):not(.context-scope-mention *),
+div:not([data-active="true"] *):not(.active *):not([data-selected="true"] *):not(.bg-sidebar-secondary *):not(code *):not(pre *):not(.inline-pill *):not(.context-scope-mention *) {
+  color: #f8fafc;
+}
+
+/* 仅代码、函数名、行内参数代码（如 rgba(...)）使用清透冰蓝高亮 */
+code,
+pre code,
+kbd,
+samp {
+  color: #7dd3fc !important;
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  border-radius: 4px !important;
+  padding: 0.12em 0.38em !important;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace !important;
+  font-weight: normal !important;
+  border: none !important;
+}
+
+code span,
+pre code span {
+  color: inherit !important;
+}
+
+/* 文件引用药丸与链接高亮 */
+.inline-pill,
+[class*="inline-pill"],
+.context-scope-mention {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #7dd3fc !important;
+  border-radius: 4px !important;
+}
+
+.inline-pill *,
+.context-scope-mention * {
+  color: #7dd3fc !important;
+}
+
+.leading-relaxed a,
+p a,
+li a,
+[class*="markdown" i] a {
+  color: #7dd3fc !important;
+  text-decoration: underline !important;
+  text-underline-offset: 3px !important;
+}
+
+/* 12. 对话气泡与概览面板：透光毛玻璃质感增强 */
+.agy-user-bubble-frame {
+  background-color: rgba(20, 26, 40, 0.42) !important;
+  backdrop-filter: blur(20px) !important;
+  -webkit-backdrop-filter: blur(20px) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 14px !important;
+}
+
+.agy-user-bubble {
+  background: transparent !important;
+  border: none !important;
+}
+
+[class*="overview-panel" i],
+[class*="overviewPanel" i] {
+  background-color: rgba(16, 20, 30, 0.45) !important;
+  backdrop-filter: blur(24px) !important;
+  -webkit-backdrop-filter: blur(24px) !important;
+  border: none !important;
+}
+
+/* 13. 归档 / 撤回等所有弹窗：毛玻璃透视效果，内部层级彻底透明，完全融入大容器 */
+.agy-dialog,
+[role="dialog"],
+[aria-modal="true"],
+[data-radix-dialog-content],
+[data-testid*="modal"],
+[data-testid*="dialog"],
+.modal,
+.dialog {
+  background-color: rgba(18, 24, 36, 0.55) !important;
+  backdrop-filter: blur(28px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 16px !important;
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6) !important;
+}
+
+/* 弹窗内部所有容器、滚动区、卡片背景彻底透明化，去除一切内嵌黑块与分割框 */
+.agy-dialog div,
+.agy-dialog section,
+.agy-dialog form,
+[role="dialog"] div,
+[role="dialog"] section,
+[role="dialog"] form,
+[aria-modal="true"] div,
+[aria-modal="true"] section,
+[aria-modal="true"] form,
+[data-radix-dialog-content] div,
+[data-radix-dialog-content] section,
+[data-radix-dialog-content] form {
+  background: transparent !important;
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* 移除弹窗内所有多余横线、分割线与边框 */
+.agy-dialog hr,
+.agy-dialog [class*="border"],
+.agy-dialog [class*="divide"],
+[role="dialog"] hr,
+[role="dialog"] [class*="border"],
+[role="dialog"] [class*="divide"],
+[aria-modal="true"] hr,
+[aria-modal="true"] [class*="border"],
+[aria-modal="true"] [class*="divide"],
+[data-radix-dialog-content] hr,
+[data-radix-dialog-content] [class*="border"],
+[data-radix-dialog-content] [class*="divide"] {
+  border: none !important;
+  border-top: none !important;
+  border-bottom: none !important;
+  border-color: transparent !important;
+}
+
+/* 弹窗主确认按钮（如 Confirm 蓝色按钮）保留鲜明主色 */
+.agy-dialog button[class*="primary"],
+.agy-dialog .bg-primary,
+[role="dialog"] button[class*="primary"],
+[role="dialog"] .bg-primary,
+[aria-modal="true"] button[class*="primary"],
+[aria-modal="true"] .bg-primary {
+  background-color: #2563eb !important;
+  color: #ffffff !important;
+  box-shadow: 0 2px 8px rgba(37, 99, 235, 0.4) !important;
+  border-radius: 8px !important;
+}
+
+.agy-dialog button[class*="primary"]:hover,
+[role="dialog"] button[class*="primary"]:hover,
+[aria-modal="true"] button[class*="primary"]:hover {
+  background-color: #1d4ed8 !important;
+}
+
+/* 弹窗次操作按钮（Cancel）透明微透 */
+.agy-dialog button:not([class*="primary"]):not(.bg-primary),
+[role="dialog"] button:not([class*="primary"]):not(.bg-primary),
+[aria-modal="true"] button:not([class*="primary"]):not(.bg-primary) {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: none !important;
+  color: #f1f5f9 !important;
+  border-radius: 8px !important;
+}
+
+.agy-dialog button:not([class*="primary"]):not(.bg-primary):hover,
+[role="dialog"] button:not([class*="primary"]):not(.bg-primary):hover,
+[aria-modal="true"] button:not([class*="primary"]):not(.bg-primary):hover {
+  background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 14. 滚动条美化（半透明纤细滚动条） */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
