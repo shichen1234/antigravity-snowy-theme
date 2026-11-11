@@ -1,8 +1,8 @@
 /**
  * @name Dark Snowy Night Theme
- * @description 极简清透雪夜主题：全透明侧边栏与顶栏，精致半透明毛玻璃底栏，无分割线一体化交互，黑字灰底选中高亮，冰蓝高亮代码
+ * @description 极简清透雪夜主题：全透明侧边栏与顶栏，精致半透明毛玻璃底栏与设置面板，侧边栏操作三键智能毛玻璃适配，黑字灰底选中高亮，冰蓝高亮代码
  * @author 时尘
- * @version 3.6.0
+ * @version 3.7.0
  */
 
 /* 1. 在最底层固定挂载雪夜壁纸并清除多层容器背景（严格保留弹窗、菜单、覆盖层与红色暂停图标） */
@@ -16,7 +16,7 @@ html, body {
 }
 
 #root, #app,
-body div:not([class*="composer"]):not([class*="bubble"]):not([role="dialog"]):not([role="menu"]):not([class*="overlay"]):not([data-browser-occluder]):not([data-base-ui-portal] *):not([class*="bg-red"]):not([data-testid*="cancel"] *):not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not([data-selected="true"] *):not([data-active="true"] *):not(.bg-sidebar-secondary *),
+body div:not([class*="composer"]):not([class*="bubble"]):not([role="dialog"]):not([role="menu"]):not([class*="overlay"]):not([data-browser-occluder]):not([data-base-ui-portal] *):not([class*="bg-red"]):not([data-testid*="cancel"] *):not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not([data-selected="true"] *):not([data-active="true"] *):not(.bg-sidebar-secondary *):not(.agy-row-actions):not([class*="row-actions"]):not(.agy-row-actions *):not([class*="row-actions"] *),
 body main,
 body section,
 body article,
@@ -95,12 +95,12 @@ button[class*="new-conversation" i]:not([data-selected="true"]):not([data-active
   border-color: rgba(255, 255, 255, 0.08) !important;
 }
 
-[role="navigation"] a:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *,
-[role="navigation"] button:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *,
-a[href="/"]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *,
-[data-testid="new-conversation-button"]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *,
-button[class*="new-conversation" i]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *,
-.agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) * {
+[role="navigation"] a:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+[role="navigation"] button:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active):not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *) *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+a[href="/"]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+[data-testid="new-conversation-button"]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+button[class*="new-conversation" i]:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+.agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary):not(.active) *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *) {
   color: #f8fafc !important;
   fill: #f8fafc !important;
   stroke: #f8fafc !important;
@@ -145,20 +145,20 @@ body [data-testid="new-conversation-button"][data-active="true"] {
   --row-bg: rgba(255, 255, 255, 0.82) !important;
 }
 
-body [role="navigation"] [data-selected="true"] *,
-body [role="navigation"] [data-active="true"] *,
-body [role="navigation"] [aria-selected="true"] *,
-body [role="navigation"] .active *,
-body [role="navigation"] .bg-sidebar-secondary *,
-body [data-testid="sidebar"] [data-selected="true"] *,
-body [data-testid="sidebar"] [data-active="true"] *,
-body [data-testid="sidebar"] .bg-sidebar-secondary *,
-body .agy-sidebar-row[data-selected="true"] *,
-body .agy-sidebar-row[data-active="true"] *,
-body .agy-sidebar-row.bg-sidebar-secondary *,
-body a[href="/"].bg-sidebar-secondary *,
-body a[href="/"][data-selected="true"] *,
-body a[href="/"][data-active="true"] *,
+body [role="navigation"] [data-selected="true"] *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body [role="navigation"] [data-active="true"] *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body [role="navigation"] [aria-selected="true"] *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body [role="navigation"] .active *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body [role="navigation"] .bg-sidebar-secondary *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body [data-testid="sidebar"] [data-selected="true"] *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body [data-testid="sidebar"] [data-active="true"] *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body [data-testid="sidebar"] .bg-sidebar-secondary *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body .agy-sidebar-row[data-selected="true"] *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body .agy-sidebar-row[data-active="true"] *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body .agy-sidebar-row.bg-sidebar-secondary *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body a[href="/"].bg-sidebar-secondary *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body a[href="/"][data-selected="true"] *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
+body a[href="/"][data-active="true"] *:not(.agy-row-actions):not(.agy-row-actions *):not([class*="row-actions"]):not([class*="row-actions"] *),
 body [data-testid="new-conversation-button"].bg-sidebar-secondary *,
 body [data-testid="new-conversation-button"][data-selected="true"] *,
 body [data-testid="new-conversation-button"][data-active="true"] * {
@@ -167,26 +167,44 @@ body [data-testid="new-conversation-button"][data-active="true"] * {
   stroke: #0f172a !important;
 }
 
-/* 6. 侧边栏对话行操作按钮（归档、固定、更多三点）：彻底消除黑色遮罩与渐变背景 */
-.agy-row-actions,
-[class*="row-actions"],
-[role="navigation"] [class*="row-actions"],
-.agy-sidebar-row .agy-row-actions {
-  background: transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  --row-bg: transparent !important;
+/* 6. 侧边栏对话行操作按钮（归档、固定、更多三点）：半透明毛玻璃大胶囊，按选中状态适配黑/白图标 */
+/* 对话行文字平滑蒙版淡出：避免文字尾部与右侧按钮重叠遮挡 */
+body .agy-sidebar-row .grow {
+  -webkit-mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - 80px), transparent calc(100% - 15px)) !important;
+  mask-image: linear-gradient(to right, #000 0%, #000 calc(100% - 80px), transparent calc(100% - 15px)) !important;
 }
 
-/* 核心：消除 Tailwind 在 row-actions 上注入的 ::before 黑色渐变遮罩 */
-.agy-row-actions::before,
-.agy-row-actions::after,
-[class*="row-actions"]::before,
-[class*="row-actions"]::after,
-.agy-sidebar-row .agy-row-actions::before,
-.agy-sidebar-row .agy-row-actions::after,
-[data-testid="conversation-row-history"] .agy-row-actions::before,
-[data-testid="conversation-row-history"] .agy-row-actions::after {
+/* 基础尺寸定位：超高特异性覆盖，彻底粉碎 Antigravity 内置的 background: none !important */
+html body[data-agy-theme] :is(.agy-sidebar-row, [data-testid*="conversation-row"]) .agy-row-actions,
+html body[data-agy-theme][data-newux-theme] :is(.agy-sidebar-row, [data-testid*="conversation-row"]) .agy-row-actions,
+html body .agy-sidebar-row .agy-row-actions,
+html body [class*="row-actions"] {
+  top: 50% !important;
+  bottom: auto !important;
+  transform: translateY(-50%) !important;
+  right: 4px !important;
+  height: 26px !important;
+  padding: 0 5px !important;
+  gap: 3px !important;
+  display: flex !important;
+  align-items: center !important;
+  border-radius: 7px !important;
+  z-index: 30 !important;
+}
+
+/* 彻底清除 Tailwind 在 row-actions 上注入的 ::before 黑色渐变遮罩 */
+html body :is(.agy-sidebar-row, [data-testid*="conversation-row"]) .agy-row-actions::before,
+html body :is(.agy-sidebar-row, [data-testid*="conversation-row"]) .agy-row-actions::after,
+html body [class*="row-actions"]::before,
+html body [class*="row-actions"]::after,
+body .agy-row-actions::before,
+body .agy-row-actions::after,
+body [class*="row-actions"]::before,
+body [class*="row-actions"]::after,
+body .agy-sidebar-row .agy-row-actions::before,
+body .agy-sidebar-row .agy-row-actions::after,
+body [data-testid="conversation-row-history"] .agy-row-actions::before,
+body [data-testid="conversation-row-history"] .agy-row-actions::after {
   display: none !important;
   content: none !important;
   background: transparent !important;
@@ -195,40 +213,92 @@ body [data-testid="new-conversation-button"][data-active="true"] * {
   -webkit-mask-image: none !important;
 }
 
-.agy-row-actions button,
-[class*="row-actions"] button {
+/* ========================================================
+   6.1 选中的对话行：背景为浅色半透明毛玻璃，按钮改成高对比度黑色！
+   ======================================================== */
+html body[data-agy-theme] .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions,
+html body[data-agy-theme][data-newux-theme] .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions,
+html body .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions {
+  background-color: rgba(255, 255, 255, 0.55) !important;
+  background: rgba(255, 255, 255, 0.55) !important;
+  backdrop-filter: blur(20px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(20px) saturate(180%) !important;
+  border: 1px solid rgba(15, 23, 42, 0.15) !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08) !important;
+}
+
+/* 选中行：按钮图标改成黑色，高对比度！ */
+html body[data-agy-theme] [role="navigation"] .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions button,
+html body[data-agy-theme] [role="navigation"] .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions button *,
+html body [role="navigation"] .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions button,
+html body [role="navigation"] .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions button *,
+html body .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions button,
+html body .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions button svg,
+html body .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions button svg *,
+html body .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions button path {
   background: transparent !important;
-  background-color: transparent !important;
-  box-shadow: none !important;
   border: none !important;
-  color: #f8fafc !important;
-}
-
-.agy-row-actions button:hover,
-[class*="row-actions"] button:hover {
-  background-color: rgba(255, 255, 255, 0.15) !important;
-  border-radius: 6px !important;
-}
-
-/* 选中项的行操作按钮：深色图标与微深悬浮效果 */
-.agy-sidebar-row[data-selected="true"] .agy-row-actions button,
-.agy-sidebar-row.bg-sidebar-secondary .agy-row-actions button {
+  box-shadow: none !important;
+  width: 19px !important;
+  height: 19px !important;
+  min-width: 19px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
   color: #0f172a !important;
-}
-
-.agy-sidebar-row[data-selected="true"] .agy-row-actions button svg,
-.agy-sidebar-row.bg-sidebar-secondary .agy-row-actions button svg {
   fill: #0f172a !important;
   stroke: #0f172a !important;
+  border-radius: 4px !important;
+  transition: background-color 0.15s ease, transform 0.1s ease !important;
 }
 
-.agy-sidebar-row[data-selected="true"] .agy-row-actions button:hover,
-.agy-sidebar-row.bg-sidebar-secondary .agy-row-actions button:hover {
-  background-color: rgba(0, 0, 0, 0.08) !important;
+html body .agy-sidebar-row:is([data-selected="true"], [data-active="true"], .bg-sidebar-secondary) .agy-row-actions button:hover {
+  background-color: rgba(15, 23, 42, 0.12) !important;
 }
-[class*="row-actions"] button:hover {
-  background-color: rgba(255, 255, 255, 0.15) !important;
-  border-radius: 6px !important;
+
+/* ========================================================
+   6.2 未选中的对话行：背景为深色半透明毛玻璃大胶囊，纯白明亮图标（遇到太亮背景绝不冲淡）
+   ======================================================== */
+html body[data-agy-theme] .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions,
+html body[data-agy-theme][data-newux-theme] .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions,
+html body .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions {
+  background-color: rgba(18, 24, 36, 0.78) !important;
+  background: rgba(18, 24, 36, 0.78) !important;
+  backdrop-filter: blur(24px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(24px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.2) !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.45) !important;
+}
+
+/* 未选中行：纯白图标，悬浮微亮白 */
+html body[data-agy-theme] [role="navigation"] .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions button,
+html body[data-agy-theme] [role="navigation"] .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions button *,
+html body [role="navigation"] .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions button,
+html body [role="navigation"] .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions button *,
+html body .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions button,
+html body .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions button svg,
+html body .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions button svg *,
+html body .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions button path {
+  background: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  width: 19px !important;
+  height: 19px !important;
+  min-width: 19px !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  stroke: #ffffff !important;
+  border-radius: 4px !important;
+  transition: background-color 0.15s ease, transform 0.1s ease !important;
+}
+
+html body .agy-sidebar-row:not([data-selected="true"]):not([data-active="true"]):not(.bg-sidebar-secondary) .agy-row-actions button:hover {
+  background-color: rgba(255, 255, 255, 0.22) !important;
 }
 
 /* 7. 顶部菜单栏下拉菜单（Antigravity、Workspace、View、Window）：毛玻璃半透明背景，清晰防遮挡 */
@@ -517,13 +587,12 @@ li a,
   border: none !important;
 }
 
-/* 13. 归档 / 撤回等所有弹窗：毛玻璃透视效果，内部层级彻底透明，完全融入大容器 */
-.agy-dialog,
-[role="dialog"],
-[aria-modal="true"],
+/* 13. 归档 / 撤回等轻量确认弹窗：毛玻璃透视效果，内部层级彻底透明，完全融入大容器 */
+.agy-dialog:not(.settings-modal-container),
+[role="dialog"]:not(.settings-modal-container):not([aria-label="Settings"]),
+[aria-modal="true"]:not(:has(.settings-modal-container)),
 [data-radix-dialog-content],
-[data-testid*="modal"],
-[data-testid*="dialog"],
+[data-testid*="modal"]:not(.settings-modal-container),
 .modal,
 .dialog {
   background-color: rgba(18, 24, 36, 0.55) !important;
@@ -534,38 +603,26 @@ li a,
   box-shadow: 0 24px 60px rgba(0, 0, 0, 0.6) !important;
 }
 
-/* 弹窗内部所有容器、滚动区、卡片背景彻底透明化，去除一切内嵌黑块与分割框 */
-.agy-dialog div,
-.agy-dialog section,
-.agy-dialog form,
-[role="dialog"] div,
-[role="dialog"] section,
-[role="dialog"] form,
-[aria-modal="true"] div,
-[aria-modal="true"] section,
-[aria-modal="true"] form,
-[data-radix-dialog-content] div,
-[data-radix-dialog-content] section,
-[data-radix-dialog-content] form {
+/* 弹窗内部所有容器、滚动区、卡片背景彻底透明化（仅限轻量弹窗，不影响设置面板） */
+.agy-dialog:not(.settings-modal-container) div,
+.agy-dialog:not(.settings-modal-container) section,
+.agy-dialog:not(.settings-modal-container) form,
+[role="dialog"]:not(.settings-modal-container):not([aria-label="Settings"]) div,
+[role="dialog"]:not(.settings-modal-container):not([aria-label="Settings"]) section,
+[role="dialog"]:not(.settings-modal-container):not([aria-label="Settings"]) form {
   background: transparent !important;
   background-color: transparent !important;
   border-color: transparent !important;
   box-shadow: none !important;
 }
 
-/* 移除弹窗内所有多余横线、分割线与边框 */
-.agy-dialog hr,
-.agy-dialog [class*="border"],
-.agy-dialog [class*="divide"],
-[role="dialog"] hr,
-[role="dialog"] [class*="border"],
-[role="dialog"] [class*="divide"],
-[aria-modal="true"] hr,
-[aria-modal="true"] [class*="border"],
-[aria-modal="true"] [class*="divide"],
-[data-radix-dialog-content] hr,
-[data-radix-dialog-content] [class*="border"],
-[data-radix-dialog-content] [class*="divide"] {
+/* 移除轻量弹窗内所有多余横线、分割线与边框 */
+.agy-dialog:not(.settings-modal-container) hr,
+.agy-dialog:not(.settings-modal-container) [class*="border"],
+.agy-dialog:not(.settings-modal-container) [class*="divide"],
+[role="dialog"]:not(.settings-modal-container):not([aria-label="Settings"]) hr,
+[role="dialog"]:not(.settings-modal-container):not([aria-label="Settings"]) [class*="border"],
+[role="dialog"]:not(.settings-modal-container):not([aria-label="Settings"]) [class*="divide"] {
   border: none !important;
   border-top: none !important;
   border-bottom: none !important;
@@ -592,8 +649,8 @@ li a,
 }
 
 /* 弹窗次操作按钮（Cancel）透明微透 */
-.agy-dialog button:not([class*="primary"]):not(.bg-primary),
-[role="dialog"] button:not([class*="primary"]):not(.bg-primary),
+.agy-dialog:not(.settings-modal-container) button:not([class*="primary"]):not(.bg-primary),
+[role="dialog"]:not(.settings-modal-container):not([aria-label="Settings"]) button:not([class*="primary"]):not(.bg-primary),
 [aria-modal="true"] button:not([class*="primary"]):not(.bg-primary) {
   background-color: rgba(255, 255, 255, 0.08) !important;
   border: none !important;
@@ -601,10 +658,145 @@ li a,
   border-radius: 8px !important;
 }
 
-.agy-dialog button:not([class*="primary"]):not(.bg-primary):hover,
-[role="dialog"] button:not([class*="primary"]):not(.bg-primary):hover,
+.agy-dialog:not(.settings-modal-container) button:not([class*="primary"]):not(.bg-primary):hover,
+[role="dialog"]:not(.settings-modal-container):not([aria-label="Settings"]) button:not([class*="primary"]):not(.bg-primary):hover,
 [aria-modal="true"] button:not([class*="primary"]):not(.bg-primary):hover {
   background-color: rgba(255, 255, 255, 0.15) !important;
+}
+
+/* 13.1 设置面板（Settings Modal）：与底部主输入框完全一致的 0.42 清透毛玻璃大胶囊 */
+/* 设置面板背景遮罩：轻盈微暗，让雪夜壁纸与暖黄灯光自然柔和透出 */
+.settings-modal-backdrop {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+  backdrop-filter: blur(8px) !important;
+  -webkit-backdrop-filter: blur(8px) !important;
+}
+
+/* 设置面板主体容器：与输入框完全一致的 0.42 清透毛玻璃大胶囊 */
+.settings-modal-container,
+[role="dialog"][aria-label="Settings"] {
+  background-color: rgba(18, 24, 36, 0.42) !important;
+  background: rgba(18, 24, 36, 0.42) !important;
+  backdrop-filter: blur(28px) saturate(180%) !important;
+  -webkit-backdrop-filter: blur(28px) saturate(180%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.14) !important;
+  border-radius: 20px !important;
+  box-shadow: 0 16px 48px 0 rgba(0, 0, 0, 0.35) !important;
+  overflow: hidden !important;
+}
+
+/* 彻底清除设置面板内部包装层的默认实黑底色（消灭 rgb(7, 7, 8) 纯黑死色块） */
+.settings-modal-container .bg-background,
+.settings-modal-container [class*="bg-background"],
+.settings-modal-container > div,
+.settings-modal-container > div > div {
+  background-color: transparent !important;
+  background: transparent !important;
+}
+
+/* 设置面板左侧导航侧栏：轻微半透融入大容器 */
+[data-testid="settings-sidebar"] {
+  background-color: rgba(0, 0, 0, 0.15) !important;
+  border-right: 1px solid rgba(255, 255, 255, 0.08) !important;
+}
+
+/* 设置面板左侧导航项：未选中项纯透明背景、清晰白字 */
+[data-testid="settings-sidebar"] button:not(.bg-sidebar-secondary):not([data-testid="settings-nav-item-Account"]) {
+  background-color: transparent !important;
+  color: #f1f5f9 !important;
+  border: none !important;
+  border-radius: 8px !important;
+  transition: background-color 0.15s ease, color 0.15s ease !important;
+}
+
+[data-testid="settings-sidebar"] button:not(.bg-sidebar-secondary):not([data-testid="settings-nav-item-Account"]):hover {
+  background-color: rgba(255, 255, 255, 0.12) !important;
+  color: #ffffff !important;
+}
+
+/* 设置面板选中的导航项：浅白半透明毛玻璃底板，黑字加粗 */
+body .settings-modal-container [data-testid="settings-sidebar"] button.bg-sidebar-secondary,
+body [data-testid="settings-sidebar"] button.bg-sidebar-secondary,
+body [data-testid="settings-sidebar"] button[data-selected="true"],
+body [data-testid="settings-sidebar"] button[data-active="true"] {
+  background-color: rgba(255, 255, 255, 0.85) !important;
+  background: rgba(255, 255, 255, 0.85) !important;
+  backdrop-filter: blur(14px) !important;
+  -webkit-backdrop-filter: blur(14px) !important;
+  color: #0f172a !important;
+  font-weight: 600 !important;
+  border-radius: 8px !important;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.18) !important;
+}
+
+body .settings-modal-container [data-testid="settings-sidebar"] button.bg-sidebar-secondary *,
+body [data-testid="settings-sidebar"] button.bg-sidebar-secondary *,
+body [data-testid="settings-sidebar"] button[data-selected="true"] *,
+body [data-testid="settings-sidebar"] button[data-active="true"] * {
+  color: #0f172a !important;
+  fill: #0f172a !important;
+  stroke: #0f172a !important;
+}
+
+/* 设置面板左下角账号卡片 */
+[data-testid="settings-nav-item-Account"] {
+  background-color: rgba(255, 255, 255, 0.06) !important;
+  border: 1px solid rgba(255, 255, 255, 0.08) !important;
+  border-radius: 10px !important;
+}
+
+[data-testid="settings-nav-item-Account"]:hover {
+  background-color: rgba(255, 255, 255, 0.14) !important;
+}
+
+/* 设置面板卡片与选项行（与输入框微透药丸一致） */
+.settings-modal-container span.border,
+.settings-modal-container [class*="rounded-xl"].border,
+.settings-modal-container [class*="rounded-xl"][class*="border"],
+.settings-modal-container .agy-card {
+  background-color: rgba(255, 255, 255, 0.05) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: 14px !important;
+}
+
+.settings-modal-container span.border.border-primary,
+.settings-modal-container [class*="rounded-xl"][class*="border-primary"] {
+  background-color: rgba(59, 130, 246, 0.18) !important;
+  border: 1.5px solid rgba(59, 130, 246, 0.6) !important;
+  box-shadow: 0 0 16px rgba(59, 130, 246, 0.22) !important;
+}
+
+/* 设置面板下拉选项按钮与小按钮（如 Turbo、Open、Always Ask 等） */
+.settings-modal-container .agy-select-trigger,
+.settings-modal-container button.bg-secondary,
+.settings-modal-container [class*="select-trigger"],
+.settings-modal-container .agy-card button {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  border: 1px solid rgba(255, 255, 255, 0.12) !important;
+  border-radius: 8px !important;
+  color: #f1f5f9 !important;
+}
+
+.settings-modal-container .agy-select-trigger:hover,
+.settings-modal-container button.bg-secondary:hover,
+.settings-modal-container [class*="select-trigger"]:hover,
+.settings-modal-container .agy-card button:hover {
+  background-color: rgba(255, 255, 255, 0.16) !important;
+  color: #ffffff !important;
+}
+
+/* 设置面板右上角关闭按钮 */
+.settings-modal-container > button,
+.settings-modal-container button[class*="absolute"] {
+  background-color: rgba(255, 255, 255, 0.08) !important;
+  color: #f1f5f9 !important;
+  border-radius: 8px !important;
+}
+
+.settings-modal-container > button:hover,
+.settings-modal-container button[class*="absolute"]:hover {
+  background-color: rgba(255, 255, 255, 0.2) !important;
+  color: #ffffff !important;
 }
 
 /* 14. 滚动条美化（半透明纤细滚动条） */
